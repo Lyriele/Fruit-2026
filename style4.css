@@ -1,0 +1,914 @@
+/* style4.css - WITH GLOSSARY ENHANCEMENTS */
+
+/* Page 4 - Complete Redesign */
+#nutrition-guide {
+    display: none;
+    width: 100%;
+    min-height: 100vh;
+    padding: 50px 10px 20px;
+    background: linear-gradient(135deg, #f0f7f0 0%, #e8f5e8 100%);
+    overflow-y: auto;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+#nutrition-guide.active {
+    display: block;
+    animation: fadeInUp 0.4s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* MINIMALIST HEADER - LOWER POSITION */
+.page-header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 0 10px;
+    margin-top: 25px; 
+}
+
+.page-header h1 {
+    font-size: 1.3rem;
+    color: #2d3748;
+    margin-bottom: 4px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.page-header h1 i {
+    color: #648908;
+    font-size: 1.1rem;
+}
+
+.page-subtitle {
+    font-size: 0.8rem;
+    color: #718096;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+/* MAIN CONTAINER - TWO COLUMNS */
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+@media (min-width: 1024px) {
+    .main-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* SECTION CARDS - UNIFORM STYLE */
+.section-card {
+    background: white;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+    height: fit-content;
+}
+
+.section-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #cbd5e0;
+}
+
+/* SECTION HEADER */
+.section-header {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #edf2f7;
+    padding-bottom: 12px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.section-title h2 {
+    font-size: 1.1rem;
+    color: #2d3748;
+    margin: 0;
+    font-weight: 600;
+}
+
+.section-title i {
+    color: #648908;
+    font-size: 1rem;
+}
+
+.section-badge {
+    background: #648908;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* COMPACT SELECTOR COMPONENT */
+.compact-selector {
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.selector-header {
+    font-size: 0.9rem;
+    color: #4a5568;
+    margin-bottom: 8px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.selector-header i {
+    color: #648908;
+    font-size: 0.8rem;
+}
+
+/* SELECTOR BUTTON - NEW DESIGN */
+.selector-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: #f8fafc;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.selector-button:hover {
+    border-color: #648908;
+    background: #f1f5f9;
+}
+
+.selector-icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #bad672 0%, #62713c 100%); 
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.selector-icon i {
+    color: white;
+    font-size: 0.9rem;
+}
+
+.selector-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.selector-info h4 {
+    font-size: 0.95rem;
+    color: #2d3748;
+    margin: 0 0 2px 0;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.selector-info p {
+    color: #718096;
+    font-size: 0.8rem;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.selector-chevron {
+    color: #a0aec0;
+    font-size: 0.8rem;
+    transition: transform 0.2s ease;
+}
+
+/* DROPDOWN MENU - COMPACT */
+.compact-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    max-height: 280px;
+    overflow-y: auto;
+    border: 1px solid #e2e8f0;
+    animation: dropdownFade 0.2s ease-out;
+}
+
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-search {
+    padding: 10px;
+    border-bottom: 1px solid #edf2f7;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1;
+}
+
+.search-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: #f8fafc;
+    border-radius: 4px;
+    border: 1px solid #e2e8f0;
+}
+
+.search-input i {
+    color: #a0aec0;
+    font-size: 0.9rem;
+}
+
+.search-input input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 0.9rem;
+    color: #2d3748;
+    font-family: inherit;
+}
+
+.search-input input::placeholder {
+    color: #a0aec0;
+}
+
+.dropdown-options {
+    padding: 8px;
+}
+
+.dropdown-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 4px;
+}
+
+.dropdown-option:hover {
+    background: #f8fafc;
+}
+
+.dropdown-option.active {
+    background: #10b98110;
+    border-left: 2px solid #648908;
+}
+
+.option-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.option-icon i {
+    color: white;
+    font-size: 0.85rem;
+}
+
+.option-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.option-info h5 {
+    font-size: 0.9rem;
+    color: #2d3748;
+    margin: 0 0 2px 0;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.option-info p {
+    color: #718096;
+    font-size: 0.75rem;
+    margin: 0;
+}
+
+/* INFO DISPLAY AREA */
+.info-display {
+    background: #f8fafc;
+    border-radius: 6px;
+    padding: 16px;
+    border: 1px solid #e2e8f0;
+    min-height: 200px;
+}
+
+/* FOOD SYNERGY SPECIFIC */
+.synergy-highlight {
+    background: linear-gradient(135deg, #10b98105 0%, #05966905 100%); 
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 16px;
+    border-left: 3px solid #648908;
+}
+
+.highlight-title {
+    font-size: 0.9rem;
+    color: #2d3748;
+    margin: 0 0 6px 0;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.highlight-title i {
+    color: #648908;
+    font-size: 0.8rem;
+}
+
+.highlight-content {
+    font-size: 0.85rem;
+    color: #4a5568;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* TIPS GRID - DENSE */
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.tip-card {
+    background: white;
+    border-radius: 6px;
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+}
+
+.tip-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.tip-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.tip-icon {
+    width: 24px;
+    height: 24px;
+    background: #648908;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.tip-icon i {
+    color: white;
+    font-size: 0.8rem;
+}
+
+.tip-title {
+    font-size: 0.85rem;
+    color: #2d3748;
+    margin: 0;
+    font-weight: 600;
+}
+
+.tip-content {
+    font-size: 0.8rem;
+    color: #4a5568;
+    line-height: 1.4;
+    margin: 0 0 8px 0;
+}
+
+.tip-benefit {
+    display: inline-block;
+    background: #648908;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+/* NUTRITION GUIDE SPECIFIC */
+.vitamin-quick-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.info-item {
+    background: white;
+    border-radius: 6px;
+    padding: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+.info-label {
+    font-size: 0.75rem;
+    color: #718096;
+    margin: 0 0 4px 0;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.info-label i {
+    font-size: 0.7rem;
+}
+
+.info-value {
+    font-size: 0.9rem;
+    color: #2d3748;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* SOURCES TABLE - COMPACT */
+.sources-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 16px;
+}
+
+.sources-table th {
+    font-size: 0.8rem;
+    color: #718096;
+    font-weight: 500;
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #e2e8f0;
+    background: #f8fafc;
+}
+
+.sources-table td {
+    font-size: 0.8rem;
+    color: #4a5568;
+    padding: 8px;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.sources-table tr:last-child td {
+    border-bottom: none;
+}
+
+.sources-table tr:hover td {
+    background: #f8fafc;
+}
+
+.rank-cell {
+    width: 30px;
+    font-weight: 600;
+    color: #648908;
+}
+
+.name-cell {
+    font-weight: 500;
+}
+
+.amount-cell {
+    color: #718096;
+}
+
+.percent-cell {
+    font-weight: 600;
+    color: #2d3748;
+    text-align: right;
+}
+
+/* TIPS LIST - DENSE */
+.tips-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px 0;
+}
+
+.tips-list li {
+    padding: 6px 0 6px 20px;
+    font-size: 0.8rem;
+    color: #4a5568;
+    line-height: 1.4;
+    position: relative;
+    border-bottom: 1px dotted #e2e8f0;
+}
+
+.tips-list li:last-child {
+    border-bottom: none;
+}
+
+.tips-list li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #648908;
+    font-weight: bold;
+    font-size: 0.7rem;
+}
+
+/* SYNERGY TAGS - COMPACT */
+.synergy-tags-container {
+    margin-bottom: 16px;
+}
+
+.tags-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.nutrient-tag {
+    background: white;
+    color: #648908;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border: 1px solid #648908;
+    transition: all 0.2s ease;
+}
+
+.nutrient-tag:hover {
+    background: #648908;
+    color: white;
+}
+
+/* SCIENCE NOTE - COMPACT */
+.science-note {
+    background: linear-gradient(135deg, #10b98105 0%, #05966905 100%); 
+    border-radius: 6px;
+    padding: 12px;
+    border-left: 3px solid #648908;
+    margin-top: 16px;
+}
+
+.note-title {
+    font-size: 0.85rem;
+    color: #2d3748;
+    margin: 0 0 6px 0;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.note-title i {
+    color: #648908;
+    font-size: 0.8rem;
+}
+
+.note-content {
+    font-size: 0.8rem;
+    color: #4a5568;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* NO DATA STATE */
+.no-data {
+    text-align: center;
+    padding: 40px 20px;
+    color: #a0aec0;
+    font-size: 0.9rem;
+}
+
+.no-data i {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* LOADING STATE */
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: #a0aec0;
+}
+
+.loading-spinner {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #e2e8f0;
+    border-top-color: #648908;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 12px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* TERM TOOLTIP STYLES */
+.term-tooltip {
+    border-bottom: 1px dashed #648908;
+    cursor: help;
+    position: relative;
+    color: #2d3748;
+}
+
+.term-tooltip:hover {
+    color: #10b981;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    width: 280px;
+    background-color: #2d3748;
+    color: white;
+    text-align: left;
+    border-radius: 8px;
+    padding: 12px;
+    position: absolute;
+    z-index: 1000;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.85rem;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    pointer-events: none;
+}
+
+.tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #2d3748 transparent transparent transparent;
+}
+
+.term-tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip-term {
+    font-weight: bold;
+    color: #648908;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.tooltip-definition {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.tooltip-benefits {
+    color: #648908;
+    font-style: italic;
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+}
+
+.tooltip-examples {
+    color: #a0aec0;
+    font-size: 0.8rem;
+    border-top: 1px solid #4a5568;
+    padding-top: 8px;
+}
+
+/* GLOSSARY SECTION */
+.glossary-section {
+    grid-column: 1 / -1;
+    margin-top: 30px;
+}
+
+.term-category {
+    background: #e2e8f0;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #4a5568;
+    margin-right: 8px;
+    margin-bottom: 10px;
+}
+
+.term-category:hover {
+    background: #cbd5e0;
+}
+
+.term-category.active {
+    background: #648908;
+    color: white;
+}
+
+.quick-term-card {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 15px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+    height: 100%;
+    cursor: pointer;
+}
+
+.quick-term-card:hover {
+    border-color: #648908;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.quick-term-icon {
+    width: 30px;
+    height: 30px;
+    background: #10b98120;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #648908;
+    flex-shrink: 0;
+}
+
+.quick-term-content h4 {
+    margin: 0 0 5px 0;
+    color: #2d3748;
+    font-size: 0.95rem;
+}
+
+.quick-term-content p {
+    margin: 0;
+    color: #4a5568;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.term-benefit-tag {
+    color: #648908;
+    background: #10b98110;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    display: inline-block;
+}
+
+.term-example {
+    color: #718096;
+    font-size: 0.8rem;
+}
+
+/* CUSTOM SCROLLBAR */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+}
+
+/* RESPONSIVE ADJUSTMENTS */
+@media (max-width: 768px) {
+    #nutrition-guide {
+        padding: 40px 8px 15px;
+    }
+    
+    .page-header {
+        margin-top: 15px;
+    }
+    
+    .page-header h1 {
+        font-size: 1.1rem;
+    }
+    
+    .section-card {
+        padding: 12px;
+    }
+    
+    .vitamin-quick-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    #quickGlossary {
+        grid-template-columns: 1fr;
+    }
+    
+    .tooltip-text {
+        width: 250px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 480px) {
+    .main-container {
+        padding: 0 5px;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .section-badge {
+        align-self: flex-start;
+    }
+    
+    .term-category {
+        font-size: 0.75rem;
+        padding: 6px 12px;
+    }
+}

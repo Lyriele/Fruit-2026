@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Fruits - Nutrition Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style3.css" id="page3-css" disabled>
+    <link rel="stylesheet" href="style4.css" id="page4-css" disabled>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <button class="nav-btn active" data-page="home">Home</button>
+        <button class="nav-btn" data-page="fruit-list">Fruit Library</button>
+        <button class="nav-btn" data-page="nutrition-guide">Nutrition Guide</button>
+    </nav>
+
+    <!-- Page 1: Home/Image Grid -->
+    <div id="home" class="page active">
+        <div class="overlay-content">
+            <div class="quote">
+                "Make food your medicine before medicine becomes your food"
+            </div>
+            <h1 class="main-title">Fruits</h1>
+        </div>
+        <div class="image-grid" id="imageGrid"></div>
+    </div>
+
+    <!-- Page 2: Fruit Library -->
+    <div id="fruit-list" class="page">
+        <!-- Search and Filters -->
+        <div class="controls-container">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="fruitSearch" placeholder="Search fruits by name...">
+                <button id="clearSearch" class="clear-btn" title="Clear search">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="filters-container">
+                <div class="season-filters">
+                    <span class="filter-label">Season:</span>
+                    <button class="filter-btn active" data-season="all">All Seasons</button>
+                    <button class="filter-btn" data-season="spring">Spring</button>
+                    <button class="filter-btn" data-season="summer">Summer</button>
+                    <button class="filter-btn" data-season="autumn">Autumn</button>
+                    <button class="filter-btn" data-season="winter">Winter</button>
+                    <button class="filter-btn" data-season="year-round">Year-Round</button>
+                </div>
+
+                <div class="sort-dropdown">
+                    <label for="nutritionSortSelect">Sort by:</label>
+                    <select id="nutritionSortSelect">
+                        <option value="default">Default Order</option>
+                        <option value="calories_high">Calories (High to Low)</option>
+                        <option value="calories_low">Calories (Low to High)</option>
+                        <option value="sugars_high">Sugars (High to Low)</option>
+                        <option value="sugars_low">Sugars (Low to High)</option>
+                        <option value="fiber_high">Fiber (High to Low)</option>
+                        <option value="fiber_low">Fiber (Low to High)</option>
+                        <option value="protein_high">Protein (High to Low)</option>
+                        <option value="protein_low">Protein (Low to High)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fruit Grid -->
+        <div class="fruit-grid-container">
+            <div class="fruit-detail-grid" id="fruitDetailGrid">
+                <!-- Fruit cards will be inserted here by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Modal for detailed view -->
+        <div id="fruitModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div id="modalBody"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 4: Nutrition Guide - COMPACT REDESIGN -->
+    <div id="nutrition-guide" class="page">
+        <!-- Minimal Header -->
+        <div class="page-header">
+            <h1><i class="fas fa-apple-alt"></i> Nutrition</h1>
+            <p class="page-subtitle">Explore food synergy and nutrient benefits</p>
+        </div>
+        
+        <!-- Two Column Container -->
+        <div class="main-container">
+            
+            <!-- Food Synergy Column -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <i class="fas fa-sync-alt"></i>
+                        <h2>Food Synergy</h2>
+                    </div>
+                    <div class="section-badge">
+                        <i class="fas fa-lightbulb"></i>
+                        Smart Pairings
+                    </div>
+                </div>
+                
+                <!-- Fruit Selector -->
+                <div class="compact-selector">
+                    <p class="selector-header"><i class="fas fa-search"></i> Select a Fruit</p>
+                    <div class="selector-button" id="fruitSelectorButton">
+                        <div class="selector-icon">
+                            <i class="fas fa-apple-alt"></i>
+                        </div>
+                        <div class="selector-info">
+                            <h4>Apple</h4>
+                            <p>Key: Vitamin C & Fiber</p>
+                        </div>
+                        <i class="fas fa-chevron-down selector-chevron"></i>
+                    </div>
+                    
+                    <!-- Fruit Dropdown -->
+                    <div class="compact-dropdown" id="fruitDropdown">
+                        <div class="dropdown-search">
+                            <div class="search-input">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="fruitSearch" placeholder="Search fruits...">
+                            </div>
+                        </div>
+                        <div class="dropdown-options" id="fruitOptions">
+                            <!-- Options populated by JS -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Synergy Info Display -->
+                <div class="info-display" id="synergyInfo">
+                    <div class="loading">
+                        <div class="loading-spinner"></div>
+                        <p>Loading synergy data...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Nutrition Guide Column -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <i class="fas fa-capsules"></i>
+                        <h2>Nutrient Guide</h2>
+                    </div>
+                    <div class="section-badge">
+                        <i class="fas fa-chart-line"></i>
+                        Essential Info
+                    </div>
+                </div>
+                
+                <!-- Vitamin Selector -->
+                <div class="compact-selector">
+                    <p class="selector-header"><i class="fas fa-filter"></i> Select a Nutrient</p>
+                    <div class="selector-button" id="vitaminSelectorButton">
+                        <div class="selector-icon">
+                            <i class="fas fa-capsules"></i>
+                        </div>
+                        <div class="selector-info">
+                            <h4>Vitamin C</h4>
+                            <p>Antioxidant</p>
+                        </div>
+                        <i class="fas fa-chevron-down selector-chevron"></i>
+                    </div>
+                    
+                    <!-- Vitamin Dropdown -->
+                    <div class="compact-dropdown" id="vitaminDropdown">
+                        <div class="dropdown-search">
+                            <div class="search-input">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="vitaminSearch" placeholder="Search nutrients...">
+                            </div>
+                        </div>
+                        <div class="dropdown-options" id="vitaminOptions">
+                            <!-- Options populated by JS -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Vitamin Info Display -->
+                <div class="info-display" id="vitaminInfo">
+                    <div class="loading">
+                        <div class="loading-spinner"></div>
+                        <p>Loading nutrient data...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="fruitdata.js"></script>
+    <script src="nutrition-data.js"></script>
+    <script src="script.js"></script>
+    <script src="script3.js"></script>
+    <script src="script4.js"></script>
+</body>
+</html>

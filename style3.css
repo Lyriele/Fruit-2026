@@ -1,0 +1,604 @@
+/* style3.css - UPDATED WITH BETTER SEARCH BAR POSITIONING */
+
+/* Page 3 Specific Styles */
+#fruit-list {
+    display: none;
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 70px; /* Reduced top padding to bring content higher */
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 40px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    overflow-y: auto;
+    position: relative;
+}
+
+#fruit-list.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0.9; }
+    to { opacity: 1; }
+}
+
+/* Controls Container - MOVE IT HIGHER */
+.controls-container {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0; /* Remove top margin since we reduced page padding */
+}
+
+/* Search Box - SMALLER AND MORE COMPACT */
+.search-box {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 30px; /* More rounded */
+    padding: 8px 16px; /* Smaller padding */
+    margin-bottom: 20px;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+    height: 50px; /* Fixed height */
+}
+
+.search-box:focus-within {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+}
+
+.search-box i {
+    color: #7f8c8d;
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 1rem; /* Smaller font */
+    outline: none;
+    padding: 5px 0;
+    font-family: 'Georgia', serif;
+    height: 100%;
+}
+
+.search-box input::placeholder {
+    color: #a0a0a0;
+    font-size: 0.95rem;
+}
+
+.clear-btn {
+    background: none;
+    border: none;
+    color: #7f8c8d;
+    cursor: pointer;
+    padding: 6px;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+}
+
+.clear-btn:hover {
+    color: #ff6b6b;
+}
+
+/* Filters Container */
+.filters-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px; /* Smaller gap */
+}
+
+/* Season Filters */
+.season-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* Smaller gap */
+    align-items: center;
+}
+
+.filter-label {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 0.95rem; /* Smaller font */
+    margin-right: 8px;
+    white-space: nowrap;
+}
+
+.filter-btn {
+    padding: 8px 16px; /* Smaller padding */
+    border: 2px solid #e0e0e0;
+    background: white;
+    border-radius: 20px; /* More rounded */
+    font-size: 0.9rem; /* Smaller font */
+    font-family: 'Georgia', serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    height: 36px; /* Fixed height */
+}
+
+.filter-btn:hover {
+    border-color: #3498db;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+    color: white;
+    border-color: #ff6b6b;
+    font-weight: 600;
+}
+
+/* Autumn button */
+.filter-btn[data-season="autumn"] {
+    background: white;
+    color: #2c3e50;
+    border-color: #e0e0e0;
+}
+
+.filter-btn[data-season="autumn"]:hover {
+    border-color: #e67e22;
+}
+
+.filter-btn[data-season="autumn"].active {
+    background: #e67e22 !important;
+    color: white !important;
+    border-color: #e67e22 !important;
+}
+
+/* Autumn badge in cards */
+.season-badge.autumn {
+    background: #e67e22 !important;
+}
+
+/* Sort Dropdown - SMALLER */
+.sort-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+    height: 40px;
+}
+
+.sort-dropdown:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-color: #4cd964;
+}
+
+.sort-dropdown label {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+#nutritionSortSelect {
+    border: none;
+    background: transparent;
+    font-size: 0.95rem;
+    font-family: 'Georgia', serif;
+    color: #2c3e50;
+    padding: 6px 30px 6px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    min-width: 200px;
+    outline: none;
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234cd964' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 14px;
+    height: 28px;
+}
+
+#nutritionSortSelect:hover {
+    background-color: #f8f9fa;
+}
+
+#nutritionSortSelect:focus {
+    background-color: #f8f9fa;
+    box-shadow: 0 0 0 3px rgba(76, 217, 100, 0.2);
+}
+
+/* Fruit Grid Container */
+.fruit-grid-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+.fruit-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 0 1rem 100px;
+    min-height: 500px;
+}
+
+/* Lazy loading indicator */
+.loading-indicator {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 20px;
+    display: none;
+}
+
+.loading-indicator.active {
+    display: block;
+}
+
+.loading-indicator i {
+    font-size: 2.5rem;
+    color: #ff6b6b;
+    margin-bottom: 15px;
+}
+
+.loading-indicator p {
+    color: #7f8c8d;
+    font-size: 1rem;
+}
+
+/* Fruit Cards */
+.fruit-card-detail {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fruit-card-detail:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.fruit-image-container {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.fruit-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.fruit-card-detail:hover .fruit-img {
+    transform: scale(1.08);
+}
+
+.season-badges {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    gap: 8px;
+}
+
+.season-badge {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.season-badge.spring { background: #4cd964; }
+.season-badge.summer { background: #ff9500; }
+.season-badge.autumn { background: #e67e22; }
+.season-badge.winter { background: #5ac8fa; }
+.season-badge.year-round { background: #5856d6; }
+
+.fruit-info {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.fruit-name {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin: 0 0 10px 0;
+    font-weight: bold;
+}
+
+.fruit-season {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.fruit-nutrition-preview {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: auto;
+}
+
+.nutrition-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nutrition-item i {
+    color: #ff6b6b;
+    font-size: 0.9rem;
+}
+
+.nutrition-label {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+}
+
+.nutrition-value {
+    font-size: 0.9rem;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    z-index: 2000;
+    overflow-y: auto;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: white;
+    max-width: 900px;
+    margin: 40px auto;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    animation: modalSlideIn 0.4s ease-out;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255,255,255,0.95);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2c3e50;
+    border: 2px solid #e0e0e0;
+}
+
+.close-modal:hover {
+    background: #ff6b6b;
+    color: white;
+    border-color: #ff6b6b;
+    transform: rotate(90deg) scale(1.1);
+}
+
+#modalBody {
+    padding: 40px;
+}
+
+/* No Results Message */
+.no-results {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: #7f8c8d;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.no-results i {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: #e0e0e0;
+}
+
+.no-results h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #5a6c7d;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    #fruit-list {
+        padding-top: 60px; /* Even less padding on mobile */
+    }
+    
+    .filters-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+    
+    .season-filters {
+        justify-content: center;
+    }
+    
+    .sort-dropdown {
+        justify-content: center;
+        align-self: center;
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+    
+    .search-box {
+        height: 46px;
+    }
+}
+
+@media (max-width: 768px) {
+    #fruit-list {
+        padding: 50px 15px 40px; /* Less padding on mobile */
+    }
+    
+    .controls-container {
+        padding: 15px;
+    }
+    
+    .sort-dropdown {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 12px;
+        height: auto;
+    }
+    
+    #nutritionSortSelect {
+        min-width: 250px;
+        text-align: center;
+        font-size: 0.95rem;
+        padding: 8px 30px 8px 10px;
+    }
+    
+    .fruit-detail-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .season-filters {
+        gap: 6px;
+    }
+    
+    .filter-btn {
+        padding: 7px 12px;
+        font-size: 0.85rem;
+        height: 34px;
+    }
+    
+    #modalBody {
+        padding: 25px 15px;
+    }
+    
+    .search-box {
+        padding: 6px 14px;
+        height: 44px;
+    }
+}
+
+@media (max-width: 576px) {
+    #fruit-list {
+        padding-top: 40px; /* Minimal top padding on small screens */
+    }
+    
+    .season-filters {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .filter-btn {
+        width: 200px;
+        justify-content: center;
+        padding: 8px 16px;
+        height: 36px;
+    }
+    
+    #nutritionSortSelect {
+        min-width: 260px;
+    }
+    
+    .fruit-detail-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 0 10px 80px;
+    }
+    
+    .search-box {
+        height: 42px;
+        padding: 5px 12px;
+    }
+    
+    .search-box input {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .fruit-detail-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
